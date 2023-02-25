@@ -3,7 +3,7 @@ sway dotfiles
 
 dependencies:
 ```
-pacman -S sway swaybg swayidle swaylock sddm pamixer playerctl noto-fonts-emoji --needed
+pacman -S sway swaybg swayidle swaylock wl-clipboard sddm pamixer playerctl noto-fonts-emoji --needed
 ```
 suggested:
 ```
