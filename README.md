@@ -7,5 +7,5 @@ pacman -S sway swaybg swayidle swaylock sddm pamixer playerctl noto-fonts-emoji 
 ```
 suggested:
 ```
-pacman -S qutebrowser rofi freetube mpv streamlink keepassxc --needed
+pacman -S nvim qutebrowser rofi freetube mpv streamlink keepassxc --needed
 ```
