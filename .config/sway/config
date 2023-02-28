@@ -179,5 +179,6 @@ bar {
     strip_workspace_numbers yes
 }
 
+include screen
 include sound
 include /etc/sway/config.d/*
