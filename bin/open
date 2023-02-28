@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if killall -s 0 $1;
+then
+	echo "$1 is running";
+else
+	$1
+fi
