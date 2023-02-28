@@ -15,7 +15,7 @@ pacman -S xorg-xwayland nvim qutebrowser rofi freetube mpv streamlink keepassxc 
 dotfiles:
 ```
 git clone https://github.com/khaos152/dot.git ~/Downloads/.
-cp -r ~/Downloads/dot/.config/* ~/.config/.
+cp -r -n ~/Downloads/dot/.config/* ~/.config/.
 ```
 
 sddm theme:
@@ -31,7 +31,7 @@ sed -i 's/Current=/Current=corners/g'
 bin files:
 ```
 chmod +x ~/Downloads/dot/bin/*
-cp -r ~/Downloads/dot/bin/* /bin/.
+cp -r -n ~/Downloads/dot/bin/* /bin/.
 ```
 
 set a wallpaper:
