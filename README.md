@@ -1,5 +1,4 @@
-# dot
-sway dotfiles
+# sway dotfiles
 
 ---------------------------------------------------
 Installation
