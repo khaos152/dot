@@ -6,7 +6,7 @@
 	// Choose the order of the modules
 	"modules-left": ["sway/workspaces"],
 	"modules-center": ["clock#time"],
-	"modules-right": ["cpu", "memory", "network", "network#2", "battery", "pulseaudio"],
+	"modules-right": ["cpu", "memory", "network", "network#2", "backlight", "pulseaudio", "battery"],
    
 
 	"sway/mode": {
@@ -24,9 +24,9 @@
 		"disable-scroll": true,
 		"format": "{name}: {icon}",
 		"format-icons": {
-			"urgent": "🚨",
-			"focused": "♿",
-			"default": "🟦"
+			"urgent": "🐙",
+			"focused": "🦈",
+			"default": "🌊"
 	}
 	},
 
@@ -108,10 +108,9 @@
 			"critical": 10
 		        },
 	        "format": "{capacity}% {icon}",
-        	"format-charging": "{capacity}% ",
+        	"format-charging": "{capacity}% {icon} ",
 	        "format-plugged": "{capacity}% ",
-	        "format-alt": "{time} {icon}",
-	        "format-full": "",
+	        "format-full": "{capacity}% {icon} ",
 		"format-icons": ["", "", "", "", ""]
 	},
 
@@ -135,7 +134,7 @@
         },
 
 	"backlight": {
-        "format": "{icon}",
+        "format": "{percent}% {icon}",
         "format-alt": "{percent}% {icon}",
         "format-alt-click": "click-right",
         "format-icons": ["💡"],
@@ -144,3 +143,4 @@
 	},
     }
 }
+
