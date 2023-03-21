@@ -1,5 +1,6 @@
 # sway dotfiles
-##Installation
+
+## Installation
 
 dependencies:
 ```
