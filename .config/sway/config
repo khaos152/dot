@@ -181,4 +181,5 @@ bar {
 
 include screen
 include sound
+include record
 include /etc/sway/config.d/*
