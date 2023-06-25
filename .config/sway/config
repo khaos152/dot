@@ -7,9 +7,7 @@ set $kblayout "de"
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred webbrowser
-set $browser qutebrowser 
-# Your preferred webbrowser2
-set $browserb librewolf
+set $browser librewolf
 # Your preferred password-manager
 set $pwmanager keepassxc
 # Your preferred application launcher
@@ -44,7 +42,7 @@ input * {
 # Basics:
 #
     # Lock Session
-    bindsym $mod+l exec swaylock -f -c 000000
+    bindsym $mod+l exec swaylock -f -c 000000 && swaymsg "output * power off"' resume 'swaymsg "output * power on"'
 
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -159,15 +157,13 @@ bindsym $mod+r mode "resize"
 #
 
 assign [app_id=$browser] 1
-assign [app_id=$browserb] 2
-assign [app_id=$pwmanager] 4
+assign [app_id=$pwmanager] 2
 
 #
 # Autorun
 #
 
 exec_always open $browser
-exec_always open $browserb
 exec_always open $pwmanager
 
 #
