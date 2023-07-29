@@ -1,0 +1,157 @@
+{
+	"layer": "top", // Waybar at top layer
+	"position": "top", // Waybar position (top|bottom|left|right)
+	"spacing": 4, // Gaps between modules (4px)
+
+	// Choose the order of the modules
+	"modules-left": ["sway/workspaces"],
+	"modules-center": ["clock#time"],
+	"modules-right": ["cpu", "memory", "network", "network#2", "battery", "pulseaudio"],
+   
+
+	"sway/mode": {
+		"format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+		"tooltip": false
+	},
+
+	"sway/window": {
+		"format": "{}",
+		"max-length": 360
+	},
+
+	"sway/workspaces": {
+		"all-outputs": false,
+		"disable-scroll": true,
+		"format": "{name}: {icon}",
+		"format-icons": {
+			"urgent": "🚨",
+			"focused": "♿",
+			"default": "🟦"
+	}
+	},
+
+	"network": {
+		// "interface": "enp5s0",
+		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits}  ",
+		"format-disconnected": "", 
+		"max-length": 50,
+		"on-click": "kitty -e 'nmtui'"
+	},
+
+	"network#2": {
+		"interface": "enp6s0",
+		"format": "{ifname}",
+		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits}  ",
+		"format-disconnected": "",
+		"max-length": 50
+	},
+
+	"tray": {
+		"icon-size": 15,
+		"spacing": 10
+        },
+
+
+	"clock#time": {
+		"interval": 1,
+		"format": "🕛 {:%H:%M:%OS  📅 %e %b %Y}",
+	        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        	"calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        	"actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+	},
+
+
+	"cpu": {
+		"interval": 5,
+		"format": "{usage}% ({load})  ", // Icon: microchip
+		"states": {
+			"warning": 70,
+			"critical": 90
+        }
+	},
+
+	"memory": {
+		"format": "{}% 📦"
+     	},
+
+	"custom/weather": {
+		"format": "{}",
+		"format-alt": "{alt}: {}",
+		"format-alt-click": "click-right",
+		"interval": 86400,
+		"return-type": "json",
+		"exec": "~/.config/waybar/modules/weather.sh",
+		"exec-if": "ping wttr.in -c1"
+	},
+
+    	"temperature": {
+		"hwmon-path": "/sys/class/hwmon/hwmon4/temp2_input",
+		"critical-threshold": 82,
+		"format-critical": "{temperatureC}°C {icon}",
+		"format": "{temperatureC}°C {icon}",
+		"format-icons": [""]
+	},
+
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 20,
+			"critical": 10
+		        },
+	        "format": "{capacity}% {icon}",
+        	"format-charging": "{capacity}% ",
+	        "format-plugged": "{capacity}% ",
+	        "format-alt": "{time} {icon}",
+	        "format-full": "",
+		"format-icons": ["", "", "", "", ""]
+	},
+
+	"pulseaudio": {
+		"scroll-step": 1, // %, can be a float
+        	"format": " {volume}% {icon} {format_source}",
+	        "format-muted": " {volume}% 🔇 {format_source}",
+        	//"format-muted": "0% {icon} ",
+	        "format-source": "{volume}% ",
+	        "format-source-muted": "",
+	        "format-icons": {
+        		"headphone": "🎧",
+	        	"hands-free": "📻",
+			"headset": "🎧",
+			"phone": "☎",
+			"portable": "📞",
+			"default": ["🔈", "🔉", "🔊"]
+        },
+        "on-click": "pavucontrol",
+	"on-click-right": "pavucontrol"
+        },
+
+	"backlight": {
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["💡"],
+        "on-scroll-down": "light -A 1",
+        "on-scroll-up": "light -U 1"
+	},
+    }
+}
