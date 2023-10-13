@@ -6,7 +6,7 @@
 	// Choose the order of the modules
 	"modules-left": ["sway/workspaces"],
 	"modules-center": ["clock#time"],
-	"modules-right": ["cpu", "memory", "network", "network#2", "pulseaudio", "battery"],
+	"modules-right": ["cpu", "memory", "network", "network#2", "network#3", "backlight", "pulseaudio", "battery"],
    
 
 	"sway/mode": {
@@ -32,19 +32,28 @@
 	},
 
 	"network": {
-		// "interface": "enp5s0",
-		"format-wifi": "{essid} ({signalStrength}%) ",
-		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits}  ",
-		"format-disconnected": "", 
+		"interface": "wlp1s0",
+		"format-wifi": "{essid} ({signalStrength}%) 󰖩",
+		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits} 󰈁",
+		// "format-disconnected": "", 
+		"format-disconnected": "󱚼", 
 		"max-length": 50,
 		"on-click": "kitty -e 'nmtui'"
 	},
 
 	"network#2": {
-		"interface": "enp6s0",
+		"interface": "enp2s0f4u2",
 		"format": "{ifname}",
-		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits}  ",
-		"format-disconnected": "",
+		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits} 󰈁",
+		"format-disconnected": "",
+		"max-length": 50
+	},
+
+	"network#3": {
+		"interface": "enp2s0f3u3",
+		"format": "{ifname}",
+		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits} 󰈁",
+		"format-disconnected": "",
 		"max-length": 50
 	},
 
@@ -84,7 +93,7 @@
 
 	"cpu": {
 		"interval": 5,
-		"format": "{usage}% ({load})  ", // Icon: microchip
+		"format": "{usage}% 💻 ",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -106,11 +115,12 @@
 	},
 
     	"temperature": {
-		"hwmon-path": "/sys/class/hwmon/hwmon4/temp2_input",
-		"critical-threshold": 82,
-		"format-critical": "{temperatureC}°C {icon}",
-		"format": "{temperatureC}°C {icon}",
-		"format-icons": [""]
+		"hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+		"critical-threshold": 80,
+		"format-critical": "{temperatureC}°C 🌡️{icon}",
+		"format": "🌡️{icon}",
+		"format-alt": "{temperatureC}°C 🌡️{icon}",
+		"format-icons": ["🧊", "❄️", "🌊", "🔥", "🌋"]
 	},
 
 	"battery": {
@@ -122,8 +132,9 @@
 	        "format": "{capacity}% {icon}",
         	"format-charging": "{capacity}% ",
 	        "format-plugged": "{capacity}% ",
+		"format-charging-full": " ",
 	        "format-alt": "{time} {icon}",
-	        "format-full": "",
+	        "format-full": "{capacity}% ",
 		"format-icons": ["", "", "", "", ""]
 	},
 
@@ -150,7 +161,7 @@
         "format": "{icon}",
         "format-alt": "{percent}% {icon}",
         "format-alt-click": "click-right",
-        "format-icons": ["💡"],
+        "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
         "on-scroll-down": "light -A 1",
         "on-scroll-up": "light -U 1"
 	},
