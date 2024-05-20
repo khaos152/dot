@@ -7,9 +7,11 @@ set $kblayout "de"
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred webbrowser
-set $browser chromium
+set $browser firefox
 # Your preferred password-manager
 set $pwmanager keepassxc
+# Your preferred file-explorer
+set $explorer pcmanfm
 # Your preferred application launcher
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu rofi -show drun
@@ -56,6 +58,9 @@ input * {
 
     # Start your browser
     bindsym $mod+Shift+Y exec $browser
+
+    # Start your file explorer
+    bindsym $mod+E exec $explorer
 
     floating_modifier $mod normal
 
@@ -110,7 +115,7 @@ input * {
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+Shift+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
