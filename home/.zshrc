@@ -35,4 +35,7 @@ bindkey  "^[[3;3~" delete-word         # alt + del
 eval $(thefuck --alias)
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-pokemon-colorscripts -r -s --no-title
+
+greet() {pokemon-colorscripts -r -s --no-title}
+greet
+alias clear="clear;greet"
