@@ -1,6 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+WORDCHARS=''
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -30,9 +29,11 @@ bindkey  "^[[F"    end-of-line         # end
 bindkey  "^[[3~"   delete-char         # del
 bindkey  "^[[1;5C" emacs-forward-word  # ctrl + r
 bindkey  "^[[1;5D" emacs-backward-word # ctrl + l
-bindkey  "^[[3;3~" delete-word         # alt + del 
+bindkey  "^[[3;3~" delete-word           # alt + del 
+bindkey  "^Z"      undo # ctrl + z
+#bindkey redo # ctrl + shift + z
 
-eval $(thefuck --alias)
+eval $(thefuck --alias wtf)
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
