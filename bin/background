@@ -5,8 +5,10 @@ if command -v magick >/dev/null 2>&1 ; then
 	magick $1 background.jpg
 	magick background.jpg -gaussian-blur 0x15 background-blur.jpg
 
-	mv background.jpg /usr/share/backgrounds/.
-	mv background-blur.jpg /usr/share/backgrounds/.
+	sudo mv background.jpg /usr/share/backgrounds/.
+	sudo mv background-blur.jpg /usr/share/backgrounds/.
+	hyprctl hyprpaper preload "/usr/share/backgrounds/background.jpg"
+	hyprctl hyprpaper wallpaper ",/usr/share/backgrounds/background.jpg"
 
 else
 	echo "ERROR: Imagemagick not found"
