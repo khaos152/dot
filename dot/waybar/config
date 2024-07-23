@@ -4,7 +4,7 @@
 	"spacing": 4, // Gaps between modules (4px)
 
 	// Choose the order of the modules
-	"modules-left": ["sway/workspaces"],
+	"modules-left": ["hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock#time"],
 	"modules-right": ["cpu", "memory", "network", "network#2", "network#3", "backlight", "pulseaudio", "battery"],
    
@@ -14,27 +14,26 @@
 		"tooltip": false
 	},
 
-	"sway/window": {
-		"format": "{}",
-		"max-length": 360
+	"hyprland/window": {
+		"format": "  {}  ",
+		"max-length": 80
 	},
 
-	"sway/workspaces": {
+	"hyprland/workspaces": {
 		"all-outputs": false,
 		"disable-scroll": true,
-		"format": "{name}",
-		// "format": "{name}: {icon}",
+		"format": " {name} ",
 		"format-icons": {
-			"urgent": "🚨",
-			"focused": "",
+			"urgent": "",
+			"active": "",
 			"default": ""
 	}
 	},
 
 	"network": {
-		"interface": "wlp1s0",
+		"interface": "enp8s0",
 		"format-wifi": "{essid} ({signalStrength}%) 󰖩",
-		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits} 󰈁",
+		"format-ethernet": " {bandwidthUpBits}  {bandwidthDownBits} 󰈁",
 		// "format-disconnected": "", 
 		"format-disconnected": "󱚼", 
 		"max-length": 50,
@@ -42,9 +41,9 @@
 	},
 
 	"network#2": {
-		"interface": "enp2s0f4u2",
+		"interface": "enp8s0f3",
 		"format": "{ifname}",
-		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits} 󰈁",
+		"format-ethernet": " {bandwidthUpBits}  {bandwidthDownBits} 󰈁",
 		"format-disconnected": "",
 		"max-length": 50
 	},
@@ -52,7 +51,7 @@
 	"network#3": {
 		"interface": "enp2s0f3u3",
 		"format": "{ifname}",
-		"format-ethernet": "{ifname}   {bandwidthUpBits}  {bandwidthDownBits} 󰈁",
+		"format-ethernet": " {bandwidthUpBits}  {bandwidthDownBits} 󰈁",
 		"format-disconnected": "",
 		"max-length": 50
 	},
