@@ -7,6 +7,7 @@ if command -v magick >/dev/null 2>&1 ; then
 
 	sudo mv background.jpg /usr/share/backgrounds/.
 	sudo mv background-blur.jpg /usr/share/backgrounds/.
+	hyprctl hyprpaper unload all
 	hyprctl hyprpaper preload "/usr/share/backgrounds/background.jpg"
 	hyprctl hyprpaper wallpaper ",/usr/share/backgrounds/background.jpg"
 
