@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mpv  --no-audio /usr/share/backgrounds/lock.webm --fullscreen --loop &
+$1 && pkill -f "mpv --no-audio /usr/share/"
