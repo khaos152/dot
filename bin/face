@@ -19,4 +19,4 @@ fi
 magick $image_source $image_cache
 magick $image_cache -gravity Center -crop "$side\x$side+0+0" +repage $image_cache
 
-sudo cp $image_cache /usr/share/faces/$face
+sudo mv $image_cache /usr/share/faces/$face
