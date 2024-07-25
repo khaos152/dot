@@ -1,3 +1,22 @@
 #!/bin/bash
 
-cp $1 /usr/share/sddm/faces/$USER.face.icon
+image_source=$1
+image_cache=.cache_$image_source.png
+image_output=$USER.face.icon
+face=$USER.face.icon
+
+image_info=$(identify $image_source)
+image_size=$(echo $image_info | awk '{print $3}')
+image_width=$(echo $image_size | awk -F 'x' '{print $1}')
+image_height=$(echo $image_size | awk -F 'x' '{print $2}') 
+
+if [[ $image_width > $image_height ]]; then
+	side=$image_height
+elif [[ $image_height > $image_width ]]; then
+	side=$image_width
+fi
+
+magick $image_source $image_cache
+magick $image_cache -gravity Center -crop "$side\x$side+0+0" +repage $image_cache
+
+sudo cp $image_cache /usr/share/faces/$face
