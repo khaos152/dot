@@ -12,7 +12,7 @@ image_height=$(echo $image_size | awk -F 'x' '{print $2}')
 
 if [[ $image_width > $image_height ]]; then
 	side=$image_height
-elif [[ $image_height > $image_width ]]; then
+else
 	side=$image_width
 fi
 
