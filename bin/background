@@ -1,15 +1,20 @@
 #!/bin/bash
+image_source=$1
+background_cache=background.jpg
+background_blur_cache=background-blur.jpg
+background_dir=/usr/share/backgrounds
+background=$background_dir/background.jpg
 
 if command -v magick >/dev/null 2>&1 ; then
 
-	magick $1 background.jpg
-	magick background.jpg -gaussian-blur 0x15 background-blur.jpg
-
-	sudo mv background.jpg /usr/share/backgrounds/.
-	sudo mv background-blur.jpg /usr/share/backgrounds/.
 	hyprctl hyprpaper unload all
-	hyprctl hyprpaper preload "/usr/share/backgrounds/background.jpg"
-	hyprctl hyprpaper wallpaper ",/usr/share/backgrounds/background.jpg"
+	magick $image_source $background_cache
+	magick $background_cache -gaussian-blur 0x15 $background_blur_cache
+
+	sudo mv $background_cache $background_dir
+	sudo mv $background_blur_cache $background_dir
+	hyprctl hyprpaper preload "$background"
+	hyprctl hyprpaper wallpaper ",$background"
 
 else
 	echo "ERROR: Imagemagick not found"
